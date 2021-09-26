@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 
-import { Item } from './item'
 import { ItemService } from './item.service'
 
 @Component({
@@ -8,11 +7,18 @@ import { ItemService } from './item.service'
   templateUrl: './items.component.html',
 })
 export class ItemsComponent implements OnInit {
-  items: Array<Item>
+  items: Object;
 
-  constructor(private itemService: ItemService) {}
+  constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
-    this.items = this.itemService.getItems()
+    this.itemService.getItems().subscribe(
+      response => {
+        this.items = response.photos;
+        console.dir(response);
+      },
+      error => console.log(error)
+    );
+
   }
 }
