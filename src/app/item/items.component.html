@@ -36,21 +36,15 @@ You can learn more about the NativeScript core theme at https://github.com/nativ
   <ListView [items]="items">
       <ng-template let-item="item">
           <Stacklayout [nsRouterLink]="['/item']">
-              <Label [text]="'ID Foto: '+item.id" fontWeight="bold" backgroundColor="#B0D2F3"></Label>
+              <Label [text]="'Id foto: '+item.id" fontWeight="bold" backgroundColor="#B0D2F3"></Label>
               <Image dock="left" width="100" height="100"
                      [src]="item.img_src.replace('http','https')">
               </Image>
-              <Label [text]="'Sol: '+item.sol"></Label>
-              <Label [text]="'ID Camara: '+item.camera.id" fontWeight="bold"></Label>
-              <Label [text]="'Modelo Camara: '+item.camera.name"></Label>
-              <Label [text]="'Rover asignado: '+item.camera.rover_id"></Label>
-              <Label [text]="'Nombre Camara: '+item.camera.full_name"></Label>
-              <Label [text]="'Fecha de la tierra: '+item.earth_date"></Label>
-              <Label [text]="'ID Rover: '+item.rover.id" fontWeight="bold"></Label>
-              <Label [text]="'Nombre Rover: '+item.rover.name"></Label>
-              <Label [text]="'Lanzamiento: '+item.rover.launch_date"></Label>
-              <Label [text]="'Aterrizaje: '+item.rover.landing_date"></Label>
-              <Label [text]="'Estatus Actual: '+item.rover.status"></Label>
+              <Label [text]="'Rover asignado en camara: '+item.rover.name"></Label>
+              <Label [text]="'Fecha en la Tierra: '+item.earth_date"></Label>
+              <Label [text]="'Fecha de lanzamiendo: '+item.rover.launch_date"></Label>
+              <Label [text]="'Fecha de aterrizaje: '+item.rover.landing_date"></Label>
+              <Label [text]="'Status: '+item.rover.status"></Label>
 
           </Stacklayout>
       </ng-template>
