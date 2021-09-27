@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-
 import { ItemService } from './item.service'
 
 @Component({
@@ -7,18 +6,18 @@ import { ItemService } from './item.service'
   templateUrl: './items.component.html',
 })
 export class ItemsComponent implements OnInit {
-  items: Object;
+  items: Object
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService) {}
 
   ngOnInit(): void {
     this.itemService.getItems().subscribe(
       response => {
-        this.items = response.photos;
+        this.items=response.photos;
         console.dir(response);
       },
       error => console.log(error)
     );
-
   }
+
 }

@@ -10,8 +10,17 @@ So you can still use template expressions, bindings, templates as well as all th
 The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
 http://docs.nativescript.org/ui/action-bar
 -->
-<ActionBar title="Consumiendo Api"> </ActionBar>
+<ActionBar title="Consumiendo Api"> 
+  <StackLayout>
+    <Image width="50" height="50"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/2449px-NASA_logo.svg.png">
+    </Image>
+</StackLayout>
+<ActionItem text="Opciones" ios.systemIcon="16"
+            ios.position="right" android.position="popup">
+</ActionItem>
 
+</ActionBar>
 <!--
 The GridLayout arranges its child elements in a table structure of rows and columns.
 A cell can contain multiple child elements, they can span over multiple rows and columns,
@@ -22,12 +31,28 @@ These components make use of the NativeScript core theme, which styles them with
 The theme also provides a set of helper class names such as p-20, h1, h2, and text-center to enhance styling.
 You can learn more about the NativeScript core theme at https://github.com/nativescript/theme
 -->
-<GridLayout>
+
+<GridLayout backgroundColor="#F0FAFA">
   <ListView [items]="items">
-    <ng-template let-item="item">
-      <StackLayout [nsRouterLink]="['/item', item.id]">
-        <Label [text]="item.name"></Label>
-      </StackLayout>
-    </ng-template>
+      <ng-template let-item="item">
+          <Stacklayout [nsRouterLink]="['/item']">
+              <Label [text]="'ID Foto: '+item.id" fontWeight="bold" backgroundColor="#B0D2F3"></Label>
+              <Image dock="left" width="100" height="100"
+                     [src]="item.img_src.replace('http','https')">
+              </Image>
+              <Label [text]="'Sol: '+item.sol"></Label>
+              <Label [text]="'ID Camara: '+item.camera.id" fontWeight="bold"></Label>
+              <Label [text]="'Modelo Camara: '+item.camera.name"></Label>
+              <Label [text]="'Rover asignado: '+item.camera.rover_id"></Label>
+              <Label [text]="'Nombre Camara: '+item.camera.full_name"></Label>
+              <Label [text]="'Fecha de la tierra: '+item.earth_date"></Label>
+              <Label [text]="'ID Rover: '+item.rover.id" fontWeight="bold"></Label>
+              <Label [text]="'Nombre Rover: '+item.rover.name"></Label>
+              <Label [text]="'Lanzamiento: '+item.rover.launch_date"></Label>
+              <Label [text]="'Aterrizaje: '+item.rover.landing_date"></Label>
+              <Label [text]="'Estatus Actual: '+item.rover.status"></Label>
+
+          </Stacklayout>
+      </ng-template>
   </ListView>
 </GridLayout>
